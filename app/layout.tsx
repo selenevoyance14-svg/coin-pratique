@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: "Coin Pratique — Astuces Maison, Budget, Cuisine & Famille",
   description: "Le guide pratique du quotidien : menus semaine, gestion budget, menage, jardin, bricolage, enfants. Astuces et bons plans pour toute la famille.",
   keywords: "menu semaine pas cher, gestion budget familial, astuces menage, potager debutant, bricolage maison",
+  metadataBase: new URL("https://coin-pratique.fr"),
+  alternates: {
+    canonical: "https://coin-pratique.fr",
+  },
   icons: {
     icon: "/favicon.svg",
   },
@@ -14,6 +18,13 @@ export const metadata: Metadata = {
     description: "Menus, budget, menage, jardin, bricolage, enfants. Tout pour simplifier votre quotidien.",
     type: "website",
     locale: "fr_FR",
+    url: "https://coin-pratique.fr",
+    siteName: "Coin Pratique",
+  },
+  twitter: {
+    card: "summary",
+    title: "Coin Pratique — Le Guide du Quotidien Familial",
+    description: "Menus, budget, menage, jardin, bricolage, enfants. Tout pour simplifier votre quotidien.",
   },
 };
 
@@ -25,6 +36,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5064203547863113"
           crossOrigin="anonymous"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Coin Pratique",
+              url: "https://coin-pratique.fr",
+              description: "Le guide pratique du quotidien : menus, budget, menage, jardin, bricolage, enfants.",
+              publisher: {
+                "@type": "Organization",
+                name: "Coin Pratique",
+                url: "https://coin-pratique.fr",
+              },
+            }),
+          }}
         />
       </head>
       <body>

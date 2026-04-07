@@ -1,12 +1,47 @@
-import { getArticle, getAllArticles, CATEGORIES } from "@/lib/articles";
+import type { Metadata } from "next";
+import { getArticle, getAllArticles, getArticlesByCategorie, CATEGORIES } from "@/lib/articles";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Link2 } from "lucide-react";
 import type { MDXComponents } from "mdx/types";
 
+type Props = {
+  params: Promise<{ categorie: string; slug: string }>;
+};
+
 export function generateStaticParams() {
   const articles = getAllArticles();
   return articles.map((a) => ({ categorie: a.categorie, slug: a.slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { categorie, slug } = await params;
+  const article = getArticle(categorie, slug);
+  if (!article) return { title: "Article non trouve" };
+
+  const url = `https://coin-pratique.fr/categorie/${categorie}/${slug}`;
+
+  return {
+    title: `${article.title} — Coin Pratique`,
+    description: article.description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: article.title,
+      description: article.description,
+      type: "article",
+      locale: "fr_FR",
+      url,
+      siteName: "Coin Pratique",
+      publishedTime: article.date,
+    },
+    twitter: {
+      card: "summary",
+      title: article.title,
+      description: article.description,
+    },
+  };
 }
 
 const mdxComponents: MDXComponents = {
@@ -21,19 +56,43 @@ const mdxComponents: MDXComponents = {
   },
 };
 
-export default async function ArticlePage({
-  params,
-}: {
-  params: Promise<{ categorie: string; slug: string }>;
-}) {
+export default async function ArticlePage({ params }: Props) {
   const { categorie, slug } = await params;
   const article = getArticle(categorie, slug);
   if (!article) notFound();
 
   const cat = CATEGORIES[categorie];
 
+  const relatedArticles = getArticlesByCategorie(categorie)
+    .filter((a) => a.slug !== slug)
+    .slice(0, 3);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.description,
+    datePublished: article.date,
+    author: {
+      "@type": "Organization",
+      name: "Coin Pratique",
+      url: "https://coin-pratique.fr",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Coin Pratique",
+      url: "https://coin-pratique.fr",
+    },
+    mainEntityOfPage: `https://coin-pratique.fr/categorie/${categorie}/${slug}`,
+  };
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <nav className="text-sm text-gray-400 mb-6 flex items-center gap-2">
         <a href="/" className="hover:text-blue-600">Accueil</a>
         <span>/</span>
@@ -73,7 +132,34 @@ export default async function ArticlePage({
         <MDXRemote source={article.content} components={mdxComponents} />
       </div>
 
-      <div className="mt-12 pt-8 border-t border-gray-100">
+      {/* Articles similaires */}
+      {relatedArticles.length > 0 && (
+        <div className="mt-14 pt-8 border-t border-gray-100">
+          <h2 className="text-xl font-bold text-gray-900 mb-6">Dans la meme thematique</h2>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {relatedArticles.map((related) => {
+              const relCat = CATEGORIES[related.categorie];
+              return (
+                <a
+                  key={related.slug}
+                  href={`/categorie/${related.categorie}/${related.slug}`}
+                  className="card-article group p-4"
+                >
+                  <span className="badge text-xs mb-2 inline-flex items-center gap-1">
+                    {relCat?.Icon && <relCat.Icon size={10} />} {relCat?.label}
+                  </span>
+                  <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-600 transition leading-snug mb-1">
+                    {related.title}
+                  </h3>
+                  <span className="text-blue-600 text-xs font-semibold">Lire le guide →</span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      <div className="mt-8 pt-8 border-t border-gray-100">
         <a href={`/categorie/${categorie}`} className="text-blue-600 font-semibold hover:underline">
           &larr; Voir tous les guides {cat?.label}
         </a>
