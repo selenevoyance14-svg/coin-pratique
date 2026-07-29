@@ -3,6 +3,7 @@ import { getArticle, getAllArticles, getArticlesByCategorie, CATEGORIES } from "
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Link2 } from "lucide-react";
+import Link from "next/link";
 import type { MDXComponents } from "mdx/types";
 
 type Props = {
@@ -62,6 +63,13 @@ export default async function ArticlePage({ params }: Props) {
   if (!article) notFound();
 
   const cat = CATEGORIES[categorie];
+  const hasAffiliateLinks = article.content.includes("amazon.fr");
+  const officialSource =
+    categorie === "administratif"
+      ? { label: "Service-Public.fr", href: "https://www.service-public.fr/" }
+      : categorie === "budget"
+        ? { label: "Ministère de l’Économie", href: "https://www.economie.gouv.fr/particuliers" }
+        : null;
 
   const relatedArticles = getArticlesByCategorie(categorie)
     .filter((a) => a.slug !== slug)
@@ -94,7 +102,7 @@ export default async function ArticlePage({ params }: Props) {
       />
 
       <nav className="text-sm text-gray-400 mb-6 flex items-center gap-2">
-        <a href="/" className="hover:text-blue-600">Accueil</a>
+        <Link href="/" className="hover:text-blue-600">Accueil</Link>
         <span>/</span>
         <a href={`/categorie/${categorie}`} className="hover:text-blue-600">{cat?.label}</a>
         <span>/</span>
@@ -115,8 +123,17 @@ export default async function ArticlePage({ params }: Props) {
       <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-8">
         <p className="affiliate-disclaimer flex items-start gap-2">
           <Link2 size={14} className="mt-0.5 shrink-0 text-blue-500" />
-          <span><strong>Transparence :</strong> Certains liens de cet article sont des liens affilies.
-          Si vous achetez via ces liens, nous percevons une petite commission, sans cout supplementaire pour vous.</span>
+          <span>
+            <strong>À vérifier :</strong> les règles, montants et délais peuvent
+            évoluer. Ce guide simplifie l’information mais ne remplace pas la
+            confirmation d’un organisme compétent.
+            {officialSource && (
+              <> Source de référence : <a href={officialSource.href} target="_blank" rel="noopener noreferrer">{officialSource.label}</a>.</>
+            )}
+            {hasAffiliateLinks && (
+              <> Certains liens marchands sont affiliés, sans coût supplémentaire pour vous.</>
+            )}
+          </span>
         </p>
       </div>
 

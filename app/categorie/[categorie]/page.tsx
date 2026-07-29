@@ -1,12 +1,29 @@
 import { getArticlesByCategorie, CATEGORIES } from "@/lib/articles";
 import { notFound } from "next/navigation";
 import { Lightbulb } from "lucide-react";
+import type { Metadata } from "next";
+
+type Props = { params: Promise<{ categorie: string }> };
 
 export function generateStaticParams() {
   return Object.keys(CATEGORIES).map((categorie) => ({ categorie }));
 }
 
-export default async function CategoriePage({ params }: { params: Promise<{ categorie: string }> }) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { categorie } = await params;
+  const category = CATEGORIES[categorie];
+  if (!category) return { title: "Catégorie introuvable" };
+
+  return {
+    title: `${category.label} : guides pratiques | Coin Pratique`,
+    description: category.description,
+    alternates: {
+      canonical: `https://coin-pratique.fr/categorie/${categorie}`,
+    },
+  };
+}
+
+export default async function CategoriePage({ params }: Props) {
   const { categorie } = await params;
   const cat = CATEGORIES[categorie];
   if (!cat) notFound();
@@ -23,6 +40,12 @@ export default async function CategoriePage({ params }: { params: Promise<{ cate
           <span className="text-blue-600">{cat.label}</span>
         </h1>
         <p className="text-gray-500 max-w-xl mx-auto">{cat.description}</p>
+        {(categorie === "administratif" || categorie === "budget") && (
+          <p className="mt-4 text-sm text-gray-500">
+            Les règles et montants peuvent évoluer. Consultez toujours
+            l’organisme officiel indiqué dans le guide avant d’engager une démarche.
+          </p>
+        )}
       </div>
 
       {articles.length === 0 ? (

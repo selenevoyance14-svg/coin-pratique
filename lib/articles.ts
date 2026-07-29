@@ -20,7 +20,7 @@ export interface Article {
   content: string;
 }
 
-export interface ArticleMeta extends Omit<Article, "content"> {}
+export type ArticleMeta = Omit<Article, "content">;
 
 export function getAllArticles(): ArticleMeta[] {
   const categories = fs.readdirSync(contentDir).filter((f) =>
