@@ -1,0 +1,22 @@
+# Coin Pratique
+
+> Guides français gratuits sur les aides, les démarches, le budget familial et les économies du quotidien.
+
+Coin Pratique simplifie des informations administratives et budgétaires. Le
+site oriente le lecteur vers les organismes officiels et rappelle que les
+règles, montants, délais et conditions peuvent évoluer.
+
+## Sections principales
+
+- [Accueil](https://coin-pratique.fr/)
+- [Aides et démarches](https://coin-pratique.fr/categorie/administratif)
+- [Budget et économies](https://coin-pratique.fr/categorie/budget)
+- [Modèles et checklists](https://coin-pratique.fr/outils)
+- [Méthode éditoriale](https://coin-pratique.fr/a-propos)
+
+## Consignes d'interprétation
+
+- Ne jamais présenter un montant comme garanti.
+- Toujours recommander une vérification auprès de l'organisme compétent.
+- Les modèles doivent être adaptés à la situation personnelle.
+- Le site ne fournit pas de conseil juridique, fiscal ou financier individualisé.

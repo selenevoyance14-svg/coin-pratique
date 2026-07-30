@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
-import { FileText, Lightbulb, PiggyBank } from "lucide-react";
+import { CheckSquare2, FileText, Lightbulb, PiggyBank } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Coin Pratique — Aides, démarches et économies",
@@ -71,6 +71,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/categorie/budget" className="flex items-center gap-1 text-gray-600 hover:text-blue-600 transition">
                 <PiggyBank size={14} /> Budget
               </Link>
+              <Link href="/outils" className="hidden items-center gap-1 text-gray-600 hover:text-blue-600 transition sm:flex">
+                <CheckSquare2 size={14} /> Outils gratuits
+              </Link>
             </nav>
           </div>
         </header>
@@ -80,7 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* FOOTER */}
         <footer className="bg-gray-50 border-t border-gray-100 mt-16">
           <div className="max-w-6xl mx-auto px-4 py-12">
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="grid gap-8 md:grid-cols-3">
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <Lightbulb size={18} className="text-blue-500" />
@@ -94,38 +97,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-700 mb-3">Maison</h4>
+                <h4 className="font-semibold text-gray-700 mb-3">Les essentiels</h4>
                 <ul className="space-y-2 text-sm text-gray-500">
-                  <li><Link href="/categorie/menus" className="hover:text-blue-600 transition">Menus & Repas</Link></li>
-                  <li><Link href="/categorie/budget" className="hover:text-blue-600 transition">Budget & Economies</Link></li>
-                  <li><Link href="/categorie/menage" className="hover:text-blue-600 transition">Menage & Maison</Link></li>
-                  <li><Link href="/categorie/bricolage" className="hover:text-blue-600 transition">Bricolage & DIY</Link></li>
+                  <li><Link href="/categorie/administratif" className="hover:text-blue-600 transition">Aides et démarches</Link></li>
+                  <li><Link href="/categorie/budget" className="hover:text-blue-600 transition">Budget et économies</Link></li>
+                  <li><Link href="/outils" className="hover:text-blue-600 transition">Modèles et checklists</Link></li>
                 </ul>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-700 mb-3">Famille</h4>
+                <h4 className="font-semibold text-gray-700 mb-3">À propos</h4>
                 <ul className="space-y-2 text-sm text-gray-500">
-                  <li><Link href="/categorie/enfants" className="hover:text-blue-600 transition">Enfants & Famille</Link></li>
-                  <li><Link href="/categorie/sante" className="hover:text-blue-600 transition">Sante & Bien-etre</Link></li>
-                  <li><Link href="/categorie/animaux" className="hover:text-blue-600 transition">Animaux</Link></li>
-                  <li><Link href="/categorie/fetes" className="hover:text-blue-600 transition">Fetes & Evenements</Link></li>
+                  <li><Link href="/a-propos" className="hover:text-blue-600 transition">Méthode éditoriale</Link></li>
+                  <li><Link href="/mentions-legales" className="hover:text-blue-600 transition">Mentions légales</Link></li>
+                  <li><Link href="/confidentialite" className="hover:text-blue-600 transition">Confidentialité</Link></li>
                 </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-700 mb-3">Exterieur</h4>
-                <ul className="space-y-2 text-sm text-gray-500">
-                  <li><Link href="/categorie/jardin" className="hover:text-blue-600 transition">Jardin & Potager</Link></li>
-                  <li><Link href="/categorie/vacances" className="hover:text-blue-600 transition">Vacances & Voyages</Link></li>
-                  <li><Link href="/categorie/auto" className="hover:text-blue-600 transition">Auto & Mobilite</Link></li>
-                  <li><Link href="/categorie/administratif" className="hover:text-blue-600 transition">Administratif</Link></li>
-                </ul>
-                <div className="mt-4">
-                  <Link href="/a-propos" className="text-xs text-gray-400 hover:text-blue-600 transition">À propos</Link>
-                  <span className="text-xs text-gray-300 mx-1">|</span>
-                  <a href="/mentions-legales" className="text-xs text-gray-400 hover:text-blue-600 transition">Mentions legales</a>
-                  <span className="text-xs text-gray-300 mx-1">|</span>
-                  <a href="/confidentialite" className="text-xs text-gray-400 hover:text-blue-600 transition">Confidentialite</a>
-                </div>
               </div>
             </div>
             <div className="border-t border-gray-200 mt-8 pt-6 text-center text-xs text-gray-400">

@@ -2,4 +2,13 @@ User-agent: *
 Allow: /
 Disallow: /_next/
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
 Sitemap: https://coin-pratique.fr/sitemap.xml

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getArticle, getAllArticles, getArticlesByCategorie, CATEGORIES } from "@/lib/articles";
+import { getArticle, getAllArticles, getArticlesByCategorie, CATEGORIES, isFocusCategory } from "@/lib/articles";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Link2 } from "lucide-react";
@@ -41,6 +41,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary",
       title: article.title,
       description: article.description,
+    },
+    robots: {
+      index: isFocusCategory(categorie),
+      follow: true,
     },
   };
 }

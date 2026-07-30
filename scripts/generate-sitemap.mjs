@@ -5,10 +5,7 @@ import matter from "gray-matter";
 const BASE_URL = "https://coin-pratique.fr";
 const contentDir = path.join(process.cwd(), "content");
 
-const CATEGORIES = [
-  "menus", "budget", "menage", "jardin", "bricolage", "enfants",
-  "sante", "animaux", "vacances", "administratif", "fetes", "auto",
-];
+const CATEGORIES = ["budget", "administratif"];
 
 function getAllArticles() {
   const articles = [];
@@ -39,6 +36,7 @@ const urls = [
   `  <url><loc>${BASE_URL}/mentions-legales</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>`,
   `  <url><loc>${BASE_URL}/confidentialite</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>`,
   `  <url><loc>${BASE_URL}/a-propos</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>`,
+  `  <url><loc>${BASE_URL}/outils</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`,
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

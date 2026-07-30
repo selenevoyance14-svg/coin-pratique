@@ -22,6 +22,12 @@ export interface Article {
 
 export type ArticleMeta = Omit<Article, "content">;
 
+export const FOCUS_CATEGORIES = new Set(["administratif", "budget"]);
+
+export function isFocusCategory(categorie: string) {
+  return FOCUS_CATEGORIES.has(categorie);
+}
+
 export function getAllArticles(): ArticleMeta[] {
   const categories = fs.readdirSync(contentDir).filter((f) =>
     fs.statSync(path.join(contentDir, f)).isDirectory()
@@ -74,6 +80,12 @@ export function getArticle(categorie: string, slug: string): Article | null {
 
 export function getArticlesByCategorie(categorie: string): ArticleMeta[] {
   return getAllArticles().filter((a) => a.categorie === categorie);
+}
+
+export function getIndexableArticles(): ArticleMeta[] {
+  return getAllArticles().filter((article) =>
+    isFocusCategory(article.categorie)
+  );
 }
 
 export const CATEGORIES: Record<string, { label: string; Icon: LucideIcon; description: string }> = {

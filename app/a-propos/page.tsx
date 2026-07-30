@@ -21,6 +21,11 @@ export default function AboutPage() {
         simple et oriente vers les organismes à consulter pour confirmer sa
         situation personnelle.
       </p>
+      <p className="mb-10 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-relaxed text-amber-950">
+        Coin Pratique n&apos;est pas un organisme public, un cabinet juridique
+        ou un conseiller financier. Une information générale ne suffit pas
+        toujours pour décider dans une situation particulière.
+      </p>
 
       <div className="space-y-6">
         <section className="rounded-2xl border border-blue-100 p-6">
@@ -29,7 +34,8 @@ export default function AboutPage() {
           <p className="text-gray-600">
             Nous organisons les informations par étapes, documents nécessaires,
             délais et points de vigilance. Pour les démarches administratives,
-            les sites publics restent la référence.
+            les sites publics restent la référence. Nous ne revendiquons pas
+            avoir testé un service ou un produit lorsque ce n&apos;est pas le cas.
           </p>
         </section>
         <section className="rounded-2xl border border-blue-100 p-6">

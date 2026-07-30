@@ -1,4 +1,4 @@
-import { getArticlesByCategorie, CATEGORIES } from "@/lib/articles";
+import { getArticlesByCategorie, CATEGORIES, isFocusCategory } from "@/lib/articles";
 import { notFound } from "next/navigation";
 import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
@@ -19,6 +19,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: category.description,
     alternates: {
       canonical: `https://coin-pratique.fr/categorie/${categorie}`,
+    },
+    robots: {
+      index: isFocusCategory(categorie),
+      follow: true,
     },
   };
 }
