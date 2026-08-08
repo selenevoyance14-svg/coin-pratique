@@ -8,7 +8,8 @@ export default function MentionsLegales() {
         <h2>Hebergement</h2>
         <p>Ce site est heberge par Cloudflare Pages (Cloudflare, Inc.).</p>
         <h2>Liens affilies</h2>
-        <p>Ce site participe au Programme Partenaires d&apos;Amazon. Les liens vers Amazon presents sur ce site sont des liens affilies.</p>
+        <p><strong>En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.</strong></p>
+        <p>Les liens vers Amazon présents sur ce site sont des liens affiliés. Un achat effectué après un clic peut générer une commission, sans coût supplémentaire pour vous. Consultez notre <a href="/affiliation-amazon">page de transparence Amazon</a>.</p>
         <h2>Responsabilite</h2>
         <p>Les informations fournies sur ce site le sont a titre indicatif.</p>
       </div>

@@ -135,7 +135,7 @@ export default async function ArticlePage({ params }: Props) {
               <> Source de référence : <a href={officialSource.href} target="_blank" rel="noopener noreferrer">{officialSource.label}</a>.</>
             )}
             {hasAffiliateLinks && (
-              <> Certains liens marchands sont affiliés, sans coût supplémentaire pour vous.</>
+              <> En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.</>
             )}
           </span>
         </p>

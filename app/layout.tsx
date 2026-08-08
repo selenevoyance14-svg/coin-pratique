@@ -93,7 +93,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   Des guides simples pour comprendre vos démarches, vos aides et votre budget.
                 </p>
                 <p className="text-xs text-gray-400 mt-3 italic">
-                  En tant que partenaire Amazon, nous percevons une commission sur les achats qualifies, sans surcout pour vous.
+                  En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.
                 </p>
               </div>
               <div>
@@ -109,6 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <ul className="space-y-2 text-sm text-gray-500">
                   <li><Link href="/a-propos" className="hover:text-blue-600 transition">Méthode éditoriale</Link></li>
                   <li><Link href="/mentions-legales" className="hover:text-blue-600 transition">Mentions légales</Link></li>
+                  <li><Link href="/affiliation-amazon" className="hover:text-blue-600 transition">Affiliation Amazon</Link></li>
                   <li><Link href="/confidentialite" className="hover:text-blue-600 transition">Confidentialité</Link></li>
                 </ul>
               </div>

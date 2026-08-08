@@ -34,6 +34,7 @@ const urls = [
     (a) => `  <url><loc>${BASE_URL}/categorie/${a.categorie}/${a.slug}</loc><lastmod>${a.date}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>`
   ),
   `  <url><loc>${BASE_URL}/mentions-legales</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>`,
+  `  <url><loc>${BASE_URL}/affiliation-amazon</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>`,
   `  <url><loc>${BASE_URL}/confidentialite</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>`,
   `  <url><loc>${BASE_URL}/a-propos</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>`,
   `  <url><loc>${BASE_URL}/outils</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`,
