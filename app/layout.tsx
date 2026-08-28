@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
-import { FileText, Lightbulb, PiggyBank } from "lucide-react";
+import { FileText, Lightbulb, Mail, PiggyBank } from "lucide-react";
+import { MERCI_FACTEUR_RECOMMANDE } from "@/components/MerciFacteurCta";
 
 export const metadata: Metadata = {
   title: "Coin Pratique — Aides, démarches et économies",
@@ -71,6 +72,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/categorie/budget" className="flex items-center gap-1 text-gray-600 hover:text-blue-600 transition">
                 <PiggyBank size={14} /> Budget
               </Link>
+              <a href={MERCI_FACTEUR_RECOMMANDE} target="_blank" rel="sponsored noopener noreferrer" className="header-mail-cta">
+                <Mail size={14} /> <span className="hidden md:inline">Envoyer un recommandé</span><span className="md:hidden">Envoyer</span>
+              </a>
             </nav>
           </div>
         </header>
@@ -90,7 +94,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   Des guides simples pour comprendre vos démarches, vos aides et votre budget.
                 </p>
                 <p className="text-xs text-gray-400 mt-3 italic">
-                  En tant que partenaire Amazon, nous percevons une commission sur les achats qualifies, sans surcout pour vous.
+                  Certains liens partenaires peuvent rémunérer Coin Pratique, sans surcoût ajouté par notre site.
                 </p>
               </div>
               <div>
@@ -125,6 +129,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <a href="/mentions-legales" className="text-xs text-gray-400 hover:text-blue-600 transition">Mentions legales</a>
                   <span className="text-xs text-gray-300 mx-1">|</span>
                   <a href="/confidentialite" className="text-xs text-gray-400 hover:text-blue-600 transition">Confidentialite</a>
+                  <span className="text-xs text-gray-300 mx-1">|</span>
+                  <a href="/affiliation" className="text-xs text-gray-400 hover:text-blue-600 transition">Affiliation</a>
                 </div>
               </div>
             </div>

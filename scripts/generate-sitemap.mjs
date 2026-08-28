@@ -39,6 +39,7 @@ const urls = [
   `  <url><loc>${BASE_URL}/mentions-legales</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>`,
   `  <url><loc>${BASE_URL}/confidentialite</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>`,
   `  <url><loc>${BASE_URL}/a-propos</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>`,
+  `  <url><loc>${BASE_URL}/affiliation</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>`,
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

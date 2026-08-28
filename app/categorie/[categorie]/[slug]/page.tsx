@@ -5,6 +5,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { Link2 } from "lucide-react";
 import Link from "next/link";
 import type { MDXComponents } from "mdx/types";
+import MerciFacteurCta from "@/components/MerciFacteurCta";
 
 type Props = {
   params: Promise<{ categorie: string; slug: string }>;
@@ -148,6 +149,12 @@ export default async function ArticlePage({ params }: Props) {
         prose-table:text-sm">
         <MDXRemote source={article.content} components={mdxComponents} />
       </div>
+
+      {categorie === "administratif" && (
+        <div className="mt-10">
+          <MerciFacteurCta compact />
+        </div>
+      )}
 
       {/* Articles similaires */}
       {relatedArticles.length > 0 && (

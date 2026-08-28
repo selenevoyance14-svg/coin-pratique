@@ -12,6 +12,7 @@ import {
   getAllArticles,
   getArticlesByCategorie,
 } from "@/lib/articles";
+import MerciFacteurCta from "@/components/MerciFacteurCta";
 
 const PRIORITY_ARTICLES = [
   ["administratif", "pension-reversion-guide-complet"],
@@ -60,6 +61,10 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-8">
+        <MerciFacteurCta />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-12">
