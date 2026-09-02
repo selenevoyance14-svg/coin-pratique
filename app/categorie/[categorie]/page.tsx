@@ -1,6 +1,7 @@
 import { getArticlesByCategorie, CATEGORIES } from "@/lib/articles";
 import { notFound } from "next/navigation";
-import { Lightbulb } from "lucide-react";
+import { ArrowRight, Lightbulb, PiggyBank } from "lucide-react";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 type Props = { params: Promise<{ categorie: string }> };
@@ -47,6 +48,17 @@ export default async function CategoriePage({ params }: Props) {
           </p>
         )}
       </div>
+
+      {categorie === "budget" ? (
+        <Link href="/coach-budget" className="group mb-10 flex flex-col items-start justify-between gap-5 rounded-3xl bg-gradient-to-r from-blue-700 to-indigo-700 p-7 text-white shadow-lg shadow-blue-200 sm:flex-row sm:items-center">
+          <div>
+            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-100"><PiggyBank size={16} /> Nouvel outil gratuit</span>
+            <h2 className="mt-2 text-2xl font-bold">Calculez votre reste à vivre</h2>
+            <p className="mt-2 max-w-2xl text-sm text-blue-100">Faites le point sur votre budget et obtenez des pistes personnalisées, sans inscription ni connexion bancaire.</p>
+          </div>
+          <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-3 font-bold text-blue-700 transition group-hover:-translate-y-0.5">Essayer le coach <ArrowRight size={17} /></span>
+        </Link>
+      ) : null}
 
       {articles.length === 0 ? (
         <div className="text-center py-20 text-gray-400">

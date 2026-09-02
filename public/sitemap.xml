@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://coin-pratique.fr</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://coin-pratique.fr/coach-budget</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/menus</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/budget</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/menage</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>

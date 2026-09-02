@@ -30,6 +30,7 @@ const articles = getAllArticles();
 
 const urls = [
   `  <url><loc>${BASE_URL}</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>`,
+  `  <url><loc>${BASE_URL}/coach-budget</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>`,
   ...CATEGORIES.map(
     (cat) => `  <url><loc>${BASE_URL}/categorie/${cat}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`
   ),

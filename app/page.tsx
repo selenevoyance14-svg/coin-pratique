@@ -59,6 +59,9 @@ export default function HomePage() {
             <Link href="/categorie/budget" className="btn-primary flex items-center gap-2">
               <PiggyBank size={17} /> Budget et économies
             </Link>
+            <Link href="/coach-budget" className="flex items-center gap-2 rounded-full border border-blue-200 bg-white px-7 py-3 font-semibold text-blue-700 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300">
+              <BadgeEuro size={17} /> Tester le coach budget
+            </Link>
           </div>
         </div>
       </section>
