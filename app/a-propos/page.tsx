@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FileCheck2, RefreshCw, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "À propos et méthode éditoriale | Coin Pratique",
+  title: "À propos et méthode éditoriale",
   description:
     "Découvrez comment Coin Pratique simplifie les démarches, les aides et les sujets de budget.",
   alternates: { canonical: "https://coin-pratique.fr/a-propos" },

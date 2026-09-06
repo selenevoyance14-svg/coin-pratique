@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Affiliation et partenaires — Coin Pratique",
+  title: "Affiliation et partenaires",
   description: "Transparence sur les liens affiliés présents sur Coin Pratique.",
   alternates: { canonical: "/affiliation" },
 };

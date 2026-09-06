@@ -76,17 +76,17 @@ export function getArticlesByCategorie(categorie: string): ArticleMeta[] {
   return getAllArticles().filter((a) => a.categorie === categorie);
 }
 
-export const CATEGORIES: Record<string, { label: string; Icon: LucideIcon; description: string }> = {
-  menus:          { label: "Menus & Repas",      Icon: UtensilsCrossed, description: "Menus semaine, batch cooking, recettes rapides et pas cheres" },
-  budget:         { label: "Budget & Economies", Icon: PiggyBank,       description: "Gerer son budget, astuces economies, bons plans au quotidien" },
-  menage:         { label: "Menage & Maison",    Icon: SprayCan,        description: "Planning menage, produits naturels, organisation, rangement" },
-  jardin:         { label: "Jardin & Potager",   Icon: Flower2,         description: "Potager debutant, calendrier semis, entretien jardin" },
-  bricolage:      { label: "Bricolage & DIY",    Icon: Wrench,          description: "Reparations, peinture, outils essentiels, tutos pas a pas" },
-  enfants:        { label: "Enfants & Famille",  Icon: GraduationCap,   description: "Devoirs, activites, routine, gestion des ecrans" },
-  sante:          { label: "Sante & Bien-etre",  Icon: Heart,           description: "Sport maison, sommeil, remedes naturels, routine sante" },
-  animaux:        { label: "Animaux",            Icon: PawPrint,        description: "Chiens, chats, alimentation, sante animale, budget" },
-  vacances:       { label: "Vacances & Voyages", Icon: Palmtree,        description: "Voyages pas cher, checklist valise, camping, bons plans" },
-  administratif:  { label: "Administratif",      Icon: FileText,        description: "Modeles lettres, aides sociales, impots, demarches" },
-  fetes:          { label: "Fetes & Evenements", Icon: PartyPopper,     description: "Anniversaires, Noel, Halloween, organisation de fetes" },
-  auto:           { label: "Auto & Mobilite",    Icon: Car,             description: "Entretien voiture, economies carburant, velo, mobilite" },
+export const CATEGORIES: Record<string, { label: string; Icon: LucideIcon; description: string; image: string }> = {
+  menus:          { label: "Menus & Repas",       Icon: UtensilsCrossed, description: "Menus de la semaine, batch cooking, repas rapides et cuisine économique.", image: "/images/categories/menus.webp" },
+  budget:         { label: "Budget & Économies",  Icon: PiggyBank,       description: "Gérer son budget, réduire ses factures et économiser au quotidien.", image: "/images/categories/budget.webp" },
+  menage:         { label: "Ménage & Maison",     Icon: SprayCan,        description: "Organisation, rangement et entretien de la maison avec des méthodes simples.", image: "/images/categories/menage.webp" },
+  jardin:         { label: "Jardin & Potager",    Icon: Flower2,         description: "Potager débutant, calendrier des semis et entretien du jardin.", image: "/images/categories/jardin.webp" },
+  bricolage:      { label: "Bricolage & DIY",     Icon: Wrench,          description: "Réparations, peinture et outils essentiels expliqués pas à pas.", image: "/images/categories/bricolage.webp" },
+  enfants:        { label: "Enfants & Famille",   Icon: GraduationCap,   description: "Routines, devoirs, activités et organisation de la vie familiale.", image: "/images/categories/enfants.webp" },
+  sante:          { label: "Santé & Bien-être",   Icon: Heart,           description: "Sommeil, activité physique et habitudes de bien-être au quotidien.", image: "/images/categories/sante.webp" },
+  animaux:        { label: "Animaux",             Icon: PawPrint,        description: "Chiens, chats, alimentation, soins courants et budget animal.", image: "/images/categories/animaux.webp" },
+  vacances:       { label: "Vacances & Voyages",  Icon: Palmtree,        description: "Préparer ses vacances, maîtriser son budget et ne rien oublier.", image: "/images/categories/vacances.webp" },
+  administratif:  { label: "Administratif",       Icon: FileText,        description: "Aides, droits, impôts et démarches administratives expliqués clairement.", image: "/images/categories/administratif.webp" },
+  fetes:          { label: "Fêtes & Événements",  Icon: PartyPopper,     description: "Anniversaires, Noël et fêtes conviviales à organiser simplement.", image: "/images/categories/fetes.webp" },
+  auto:           { label: "Auto & Mobilité",     Icon: Car,             description: "Entretien automobile, carburant, vélo et mobilité du quotidien.", image: "/images/categories/auto.webp" },
 };

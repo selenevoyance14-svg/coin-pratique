@@ -2,6 +2,7 @@ import { getArticlesByCategorie, CATEGORIES } from "@/lib/articles";
 import { notFound } from "next/navigation";
 import { ArrowRight, Lightbulb, PiggyBank } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 type Props = { params: Promise<{ categorie: string }> };
@@ -16,11 +17,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!category) return { title: "Catégorie introuvable" };
 
   return {
-    title: `${category.label} : guides pratiques | Coin Pratique`,
+    title: `${category.label} : guides pratiques`,
     description: category.description,
     alternates: {
       canonical: `https://coin-pratique.fr/categorie/${categorie}`,
     },
+    openGraph: {
+      title: `${category.label} : conseils et guides pratiques`,
+      description: category.description,
+      url: `/categorie/${categorie}`,
+      images: [{ url: category.image, width: 1200, height: 900, alt: category.label }],
+    },
+    twitter: { card: "summary_large_image", images: [category.image] },
   };
 }
 
@@ -30,17 +38,41 @@ export default async function CategoriePage({ params }: Props) {
   if (!cat) notFound();
 
   const articles = getArticlesByCategorie(categorie);
+  const pageUrl = `https://coin-pratique.fr/categorie/${categorie}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "CollectionPage", name: cat.label, description: cat.description, url: pageUrl, inLanguage: "fr-FR" },
+      { "@type": "BreadcrumbList", itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Accueil", item: "https://coin-pratique.fr" },
+        { "@type": "ListItem", position: 2, name: cat.label, item: pageUrl },
+      ] },
+      { "@type": "ItemList", numberOfItems: articles.length, itemListElement: articles.map((article, index) => ({
+        "@type": "ListItem", position: index + 1, name: article.title,
+        url: `${pageUrl}/${article.slug}`,
+      })) },
+    ],
+  };
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="text-center mb-12">
-        <div className="flex justify-center mb-3 text-blue-500">
-          <cat.Icon size={52} />
+        <div className="relative mx-auto mb-7 h-64 max-w-4xl overflow-hidden rounded-3xl shadow-lg shadow-blue-100">
+          <Image src={cat.image} alt={`Conseils pratiques : ${cat.label}`} fill priority sizes="(max-width: 768px) 100vw, 896px" className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 to-transparent" />
+          <div className="absolute bottom-5 left-5 grid h-14 w-14 place-items-center rounded-2xl bg-white text-blue-600 shadow-lg">
+            <cat.Icon size={30} />
+          </div>
         </div>
         <h1 className="text-3xl font-bold text-gray-900 mb-3">
           <span className="text-blue-600">{cat.label}</span>
         </h1>
         <p className="text-gray-500 max-w-xl mx-auto">{cat.description}</p>
+        <p className="mt-3 text-sm leading-6 text-gray-500 max-w-2xl mx-auto">
+          Retrouvez {articles.length} guides concrets, organisés pour aller rapidement à l’essentiel,
+          comparer les solutions et vérifier les points importants avant d’agir.
+        </p>
         {(categorie === "administratif" || categorie === "budget") && (
           <p className="mt-4 text-sm text-gray-500">
             Les règles et montants peuvent évoluer. Consultez toujours
@@ -70,10 +102,10 @@ export default async function CategoriePage({ params }: Props) {
       ) : (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {articles.map((article) => (
-            <a key={article.slug} href={`/categorie/${categorie}/${article.slug}`}
+            <Link key={article.slug} href={`/categorie/${categorie}/${article.slug}`}
               className="card-article group">
-              <div className="bg-blue-50 h-40 flex items-center justify-center text-blue-300">
-                <cat.Icon size={48} />
+              <div className="relative h-44 overflow-hidden bg-blue-50">
+                <Image src={article.image ?? cat.image} alt="" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
               </div>
               <div className="p-5">
                 <h2 className="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition leading-snug">
@@ -82,7 +114,7 @@ export default async function CategoriePage({ params }: Props) {
                 <p className="text-sm text-gray-500 line-clamp-3 mb-4">{article.description}</p>
                 <span className="text-blue-600 text-sm font-semibold">Lire le guide &rarr;</span>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       )}

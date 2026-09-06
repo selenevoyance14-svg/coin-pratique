@@ -5,9 +5,16 @@ import { FileText, Lightbulb, Mail, PiggyBank } from "lucide-react";
 import { MERCI_FACTEUR_RECOMMANDE } from "@/components/MerciFacteurCta";
 
 export const metadata: Metadata = {
-  title: "Coin Pratique — Aides, démarches et économies",
+  title: {
+    default: "Coin Pratique — Aides, démarches et économies",
+    template: "%s | Coin Pratique",
+  },
   description: "Des guides simples sur les aides, les démarches administratives, les droits et les économies du quotidien.",
   metadataBase: new URL("https://coin-pratique.fr"),
+  applicationName: "Coin Pratique",
+  authors: [{ name: "La rédaction Coin Pratique", url: "/a-propos" }],
+  creator: "Coin Pratique",
+  publisher: "Coin Pratique",
   alternates: {
     canonical: "https://coin-pratique.fr",
   },
@@ -21,11 +28,18 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "https://coin-pratique.fr",
     siteName: "Coin Pratique",
+    images: [{ url: "/images/og-coin-pratique.webp", width: 1200, height: 630, alt: "Coin Pratique, guides pour les démarches et le budget" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Coin Pratique — Aides, démarches et économies",
     description: "Des explications simples pour vos démarches et votre budget.",
+    images: ["/images/og-coin-pratique.webp"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
   },
 };
 
@@ -43,15 +57,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Coin Pratique",
-              url: "https://coin-pratique.fr",
-              description: "Des guides simples sur les aides, les démarches administratives et les économies.",
-              publisher: {
-                "@type": "Organization",
-                name: "Coin Pratique",
-                url: "https://coin-pratique.fr",
-              },
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://coin-pratique.fr/#organization",
+                  name: "Coin Pratique",
+                  url: "https://coin-pratique.fr",
+                  logo: "https://coin-pratique.fr/favicon.svg",
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://coin-pratique.fr/#website",
+                  name: "Coin Pratique",
+                  url: "https://coin-pratique.fr",
+                  inLanguage: "fr-FR",
+                  description: "Des guides simples sur les aides, les démarches administratives et les économies.",
+                  publisher: { "@id": "https://coin-pratique.fr/#organization" },
+                },
+              ],
             }),
           }}
         />

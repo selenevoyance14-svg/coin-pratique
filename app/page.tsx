@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   BadgeEuro,
@@ -73,6 +74,9 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-5 md:grid-cols-2">
           <Link href="/categorie/administratif" className="card-article group p-7">
+            <div className="relative -mx-7 -mt-7 mb-6 h-48 overflow-hidden">
+              <Image src={CATEGORIES.administratif.image} alt="Démarches administratives organisées sur un bureau" fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-105" />
+            </div>
             <FileCheck2 size={36} className="mb-4 text-blue-500" />
             <h2 className="mb-2 text-2xl font-bold text-gray-900 group-hover:text-blue-600">
               Aides et démarches administratives
@@ -84,6 +88,9 @@ export default function HomePage() {
             <span className="font-semibold text-blue-600">{adminCount} guides <ArrowRight size={15} className="inline" /></span>
           </Link>
           <Link href="/categorie/budget" className="card-article group p-7">
+            <div className="relative -mx-7 -mt-7 mb-6 h-48 overflow-hidden">
+              <Image src={CATEGORIES.budget.image} alt="Organisation du budget familial" fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-105" />
+            </div>
             <BadgeEuro size={36} className="mb-4 text-blue-500" />
             <h2 className="mb-2 text-2xl font-bold text-gray-900 group-hover:text-blue-600">
               Budget et économies du quotidien
@@ -109,6 +116,9 @@ export default function HomePage() {
                 href={`/categorie/${article.categorie}/${article.slug}`}
                 className="card-article group p-6"
               >
+                <div className="relative -mx-6 -mt-6 mb-5 h-36 overflow-hidden">
+                  <Image src={article.image ?? category.image} alt="" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
+                </div>
                 <span className="badge mb-3 inline-flex items-center gap-1">
                   {category ? <category.Icon size={11} /> : <Lightbulb size={11} />}
                   {category?.label}

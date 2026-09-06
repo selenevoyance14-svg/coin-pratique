@@ -3,7 +3,7 @@ import { BadgeEuro, ShieldCheck } from "lucide-react";
 import BudgetCoach from "@/components/BudgetCoach";
 
 export const metadata: Metadata = {
-  title: "Coach budget gratuit : calculez votre reste à vivre | Coin Pratique",
+  title: "Coach budget gratuit : calculez votre reste à vivre",
   description: "Faites le point gratuitement sur vos revenus, dépenses et reste à vivre. Obtenez un diagnostic budget immédiat, sans inscription ni données bancaires.",
   alternates: { canonical: "https://coin-pratique.fr/coach-budget" },
   openGraph: {

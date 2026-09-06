@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Link2 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import type { MDXComponents } from "mdx/types";
 import MerciFacteurCta from "@/components/MerciFacteurCta";
 
@@ -22,9 +23,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!article) return { title: "Article non trouve" };
 
   const url = `https://coin-pratique.fr/categorie/${categorie}/${slug}`;
+  const category = CATEGORIES[categorie];
+  const image = article.image ?? category?.image ?? "/images/og-coin-pratique.webp";
 
   return {
-    title: `${article.title} — Coin Pratique`,
+    title: article.title,
     description: article.description,
     alternates: {
       canonical: url,
@@ -37,11 +40,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
       siteName: "Coin Pratique",
       publishedTime: article.date,
+      modifiedTime: article.date,
+      images: [{ url: image, width: 1200, height: 900, alt: article.title }],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: article.title,
       description: article.description,
+      images: [image],
     },
   };
 }
@@ -64,6 +70,7 @@ export default async function ArticlePage({ params }: Props) {
   if (!article) notFound();
 
   const cat = CATEGORIES[categorie];
+  const articleImage = article.image ?? cat?.image ?? "/images/og-coin-pratique.webp";
   const hasAffiliateLinks = article.content.includes("amazon.fr");
   const officialSource =
     categorie === "administratif"
@@ -76,23 +83,31 @@ export default async function ArticlePage({ params }: Props) {
     .filter((a) => a.slug !== slug)
     .slice(0, 3);
 
+  const articleUrl = `https://coin-pratique.fr/categorie/${categorie}/${slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: article.title,
-    description: article.description,
-    datePublished: article.date,
-    author: {
-      "@type": "Organization",
-      name: "Coin Pratique",
-      url: "https://coin-pratique.fr",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Coin Pratique",
-      url: "https://coin-pratique.fr",
-    },
-    mainEntityOfPage: `https://coin-pratique.fr/categorie/${categorie}/${slug}`,
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: article.title,
+        description: article.description,
+        image: `https://coin-pratique.fr${articleImage}`,
+        datePublished: article.date,
+        dateModified: article.date,
+        inLanguage: "fr-FR",
+        author: { "@type": "Organization", name: "Coin Pratique", url: "https://coin-pratique.fr/a-propos" },
+        publisher: { "@type": "Organization", name: "Coin Pratique", url: "https://coin-pratique.fr" },
+        mainEntityOfPage: articleUrl,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Accueil", item: "https://coin-pratique.fr" },
+          { "@type": "ListItem", position: 2, name: cat?.label, item: `https://coin-pratique.fr/categorie/${categorie}` },
+          { "@type": "ListItem", position: 3, name: article.title, item: articleUrl },
+        ],
+      },
+    ],
   };
 
   return (
@@ -120,6 +135,10 @@ export default async function ArticlePage({ params }: Props) {
         <p className="text-lg text-gray-600">{article.description}</p>
         <p className="text-sm text-gray-400 mt-3">Mis a jour le {new Date(article.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</p>
       </div>
+
+      <figure className="relative mb-8 aspect-[16/9] overflow-hidden rounded-2xl bg-blue-50 shadow-sm">
+        <Image src={articleImage} alt={`Illustration du guide : ${article.title}`} fill priority sizes="(max-width: 768px) 100vw, 768px" className="object-cover" />
+      </figure>
 
       <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-8">
         <p className="affiliate-disclaimer flex items-start gap-2">
