@@ -15,6 +15,7 @@ export interface Article {
   title: string;
   description: string;
   date: string;
+  updated?: string;
   image?: string;
   featured?: boolean;
   content: string;
@@ -44,13 +45,14 @@ export function getAllArticles(): ArticleMeta[] {
         title: data.title,
         description: data.description,
         date: data.date,
+        updated: data.updated,
         image: data.image,
         featured: data.featured ?? false,
       });
     }
   }
 
-  return articles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return articles.sort((a, b) => new Date(b.updated ?? b.date).getTime() - new Date(a.updated ?? a.date).getTime());
 }
 
 export function getArticle(categorie: string, slug: string): Article | null {
@@ -66,6 +68,7 @@ export function getArticle(categorie: string, slug: string): Article | null {
     title: data.title,
     description: data.description,
     date: data.date,
+        updated: data.updated,
     image: data.image,
     featured: data.featured ?? false,
     content,

@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
       siteName: "Coin Pratique",
       publishedTime: article.date,
-      modifiedTime: article.date,
+      modifiedTime: article.updated ?? article.date,
       images: [{ url: image, width: 1200, height: 900, alt: article.title }],
     },
     twitter: {
@@ -93,7 +93,7 @@ export default async function ArticlePage({ params }: Props) {
         description: article.description,
         image: `https://coin-pratique.fr${articleImage}`,
         datePublished: article.date,
-        dateModified: article.date,
+        dateModified: article.updated ?? article.date,
         inLanguage: "fr-FR",
         author: { "@type": "Organization", name: "Coin Pratique", url: "https://coin-pratique.fr/a-propos" },
         publisher: { "@type": "Organization", name: "Coin Pratique", url: "https://coin-pratique.fr" },
@@ -133,7 +133,7 @@ export default async function ArticlePage({ params }: Props) {
           {article.title}
         </h1>
         <p className="text-lg text-gray-600">{article.description}</p>
-        <p className="text-sm text-gray-400 mt-3">Mis a jour le {new Date(article.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</p>
+        <p className="text-sm text-gray-400 mt-3">Mis à jour le {new Date(article.updated ?? article.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</p>
       </div>
 
       <figure className="relative mb-8 aspect-[16/9] overflow-hidden rounded-2xl bg-blue-50 shadow-sm">

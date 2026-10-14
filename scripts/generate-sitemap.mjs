@@ -20,7 +20,7 @@ function getAllArticles() {
       const slug = file.replace(".mdx", "");
       const raw = fs.readFileSync(path.join(catDir, file), "utf-8");
       const { data } = matter(raw);
-      articles.push({ slug, categorie: cat, date: data.date });
+      articles.push({ slug, categorie: cat, date: data.updated ?? data.date });
     }
   }
   return articles;

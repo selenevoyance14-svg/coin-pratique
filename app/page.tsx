@@ -32,6 +32,7 @@ export default function HomePage() {
     );
     return article ? [article] : [];
   });
+  const latestArticles = articles.filter((article) => article.date === "2026-10-14").slice(0, 8);
   const adminCount = getArticlesByCategorie("administratif").length;
   const budgetCount = getArticlesByCategorie("budget").length;
   const secondaryCategories = Object.entries(CATEGORIES).filter(
@@ -101,6 +102,21 @@ export default function HomePage() {
             </p>
             <span className="font-semibold text-blue-600">{budgetCount} guides <ArrowRight size={15} className="inline" /></span>
           </Link>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-14">
+        <h2 className="mb-2 text-2xl font-bold text-gray-900">Les nouveaux guides d’octobre</h2>
+        <p className="mb-7 text-gray-500">Démarches, économies et organisation pour les prochains mois.</p>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {latestArticles.map((article) => (
+            <Link key={article.slug} href={`/categorie/${article.categorie}/${article.slug}`} className="card-article group p-5">
+              <span className="badge mb-3 inline-flex">{CATEGORIES[article.categorie].label}</span>
+              <h3 className="mb-3 font-bold leading-snug group-hover:text-blue-600">{article.title}</h3>
+              <p className="line-clamp-3 text-sm text-gray-500">{article.description}</p>
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-blue-600">Lire le guide <ArrowRight size={14} /></span>
+            </Link>
+          ))}
         </div>
       </section>
 
