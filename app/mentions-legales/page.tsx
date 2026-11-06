@@ -9,7 +9,7 @@ export default function MentionsLegales() {
         <p>Ce site est hébergé par Cloudflare Pages, Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis.</p>
         <h2>Liens affiliés</h2>
         <p><strong>En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.</strong></p>
-        <p>Les liens vers Amazon présents sur ce site sont des liens affiliés. Un achat effectué après un clic peut générer une commission, sans coût supplémentaire pour vous. Consultez notre <a href="/affiliation-amazon">page de transparence Amazon</a>.</p>
+        <p>Les liens vers Amazon présents sur ce site sont des liens affiliés. Un achat effectué après un clic peut générer une commission, sans coût supplémentaire pour vous. Consultez notre <a href="/affiliation">page de transparence Amazon</a>.</p>
         <p>Les liens vers Merci Facteur sont également affiliés. Ce service tiers payant reste responsable de ses tarifs, conditions et prestations d’envoi postal.</p>
         <h2>Responsabilité</h2>
         <p>Les informations fournies sur ce site le sont à titre indicatif. Les prix, disponibilités et conditions doivent être vérifiés auprès du marchand avant tout achat.</p>

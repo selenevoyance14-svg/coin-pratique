@@ -32,7 +32,7 @@ export default function HomePage() {
     );
     return article ? [article] : [];
   });
-  const latestArticles = articles.filter((article) => article.date === "2026-10-14").slice(0, 8);
+  const latestArticles = articles.slice(0, 8);
   const adminCount = getArticlesByCategorie("administratif").length;
   const budgetCount = getArticlesByCategorie("budget").length;
   const secondaryCategories = Object.entries(CATEGORIES).filter(
@@ -106,7 +106,7 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-14">
-        <h2 className="mb-2 text-2xl font-bold text-gray-900">Les nouveaux guides d’octobre</h2>
+        <h2 className="mb-2 text-2xl font-bold text-gray-900">Les derniers guides pratiques</h2>
         <p className="mb-7 text-gray-500">Démarches, économies et organisation pour les prochains mois.</p>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {latestArticles.map((article) => (

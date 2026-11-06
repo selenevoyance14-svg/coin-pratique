@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://coin-pratique.fr</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://coin-pratique.fr</loc><lastmod>2026-11-06</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://coin-pratique.fr/coach-budget</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://coin-pratique.fr/categorie/menus</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://coin-pratique.fr/categorie/budget</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://coin-pratique.fr/categorie/menage</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://coin-pratique.fr/categorie/jardin</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://coin-pratique.fr/categorie/bricolage</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://coin-pratique.fr/categorie/enfants</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://coin-pratique.fr/categorie/sante</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://coin-pratique.fr/categorie/animaux</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://coin-pratique.fr/categorie/vacances</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://coin-pratique.fr/categorie/administratif</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://coin-pratique.fr/categorie/fetes</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://coin-pratique.fr/categorie/auto</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/menus</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/budget</loc><lastmod>2026-11-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/menage</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/jardin</loc><lastmod>2026-04-16</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/bricolage</loc><lastmod>2026-04-16</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/enfants</loc><lastmod>2026-04-16</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/sante</loc><lastmod>2026-05-22</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/animaux</loc><lastmod>2026-04-16</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/vacances</loc><lastmod>2026-05-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/administratif</loc><lastmod>2026-11-06</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/fetes</loc><lastmod>2026-04-16</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/auto</loc><lastmod>2026-04-16</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/menus/batch-cooking-debutant</loc><lastmod>2026-03-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/menus/congelation-guide</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/menus/gouters-maison-enfants</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -29,6 +29,7 @@
   <url><loc>https://coin-pratique.fr/categorie/budget/cheque-energie-2026-guide</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/budget/comparatif-drives-carrefour-leclerc-auchan</loc><lastmod>2026-04-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/budget/comparer-forfait-mobile-cout-annuel</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/budget/depenses-annuelles-calendrier-budget</loc><lastmod>2026-11-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/budget/economies-courses-supermarche</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/budget/economies-courses</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/budget/gerer-budget-familial</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -36,6 +37,7 @@
   <url><loc>https://coin-pratique.fr/categorie/budget/meilleur-destructeur-documents-amazon-2026</loc><lastmod>2026-04-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/budget/meilleure-machine-a-cafe-amazon-2026</loc><lastmod>2026-04-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/budget/preparer-budget-noel-sans-credit</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/budget/prix-kilo-litre-comparer-courses</loc><lastmod>2026-11-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/budget/produits-marques-distributeur-intelligents-mdd</loc><lastmod>2026-04-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/budget/reduire-factures-energie</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/budget/vide-dressing-vendre-vetements</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -116,6 +118,7 @@
   <url><loc>https://coin-pratique.fr/categorie/administratif/aides-sociales-famille</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/administratif/aides-sociales-guide</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/administratif/carte-identite-passeport-demarches</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://coin-pratique.fr/categorie/administratif/classer-papiers-dossier-demarches</loc><lastmod>2026-11-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/administratif/declaration-impots-guide</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/administratif/demenagement-changement-adresse-checklist</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://coin-pratique.fr/categorie/administratif/france-services-aide-demarches</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>

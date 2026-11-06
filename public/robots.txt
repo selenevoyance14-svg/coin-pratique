@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /_next/
 
 Sitemap: https://coin-pratique.fr/sitemap.xml

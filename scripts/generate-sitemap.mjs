@@ -27,12 +27,13 @@ function getAllArticles() {
 }
 
 const articles = getAllArticles();
+const latestDate = articles.reduce((date, article) => article.date > date ? article.date : date, "2026-01-01");
 
 const urls = [
-  `  <url><loc>${BASE_URL}</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>`,
+  `  <url><loc>${BASE_URL}</loc><lastmod>${latestDate}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>`,
   `  <url><loc>${BASE_URL}/coach-budget</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>`,
   ...CATEGORIES.map(
-    (cat) => `  <url><loc>${BASE_URL}/categorie/${cat}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`
+    (cat) => `  <url><loc>${BASE_URL}/categorie/${cat}</loc><lastmod>${articles.filter(a => a.categorie === cat).reduce((date, article) => article.date > date ? article.date : date, "2026-01-01")}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>`
   ),
   ...articles.map(
     (a) => `  <url><loc>${BASE_URL}/categorie/${a.categorie}/${a.slug}</loc><lastmod>${a.date}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>`
