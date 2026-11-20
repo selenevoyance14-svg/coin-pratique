@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Politique de confidentialité",
+  description: "Informations sur les données, cookies et droits des utilisateurs du site Coin Pratique et de ses outils gratuits.",
+  alternates: { canonical: "/confidentialite" },
+};
+
 export default function Confidentialite() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">

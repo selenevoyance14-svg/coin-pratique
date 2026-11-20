@@ -68,6 +68,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-6xl px-4 pt-8">
+        <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6 sm:p-8">
+          <span className="badge">Nouvel outil gratuit</span>
+          <h2 className="mt-4 text-2xl font-bold text-gray-900">Petit paquet ou grand lot : comparez avant d’acheter.</h2>
+          <p className="mt-3 max-w-2xl text-gray-600">Calculez le coût au kilo, au litre ou à la pièce, avec les quantités et les prix que vous relevez. Sans compte et sans sauvegarde de vos saisies.</p>
+          <Link href="/comparer-prix" className="btn-primary mt-5">Comparer deux offres</Link>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-4 py-8">
         <MerciFacteurCta />
       </section>

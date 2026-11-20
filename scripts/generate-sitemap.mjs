@@ -30,6 +30,7 @@ const articles = getAllArticles();
 const latestDate = articles.reduce((date, article) => article.date > date ? article.date : date, "2026-01-01");
 
 const urls = [
+  `  <url><loc>${BASE_URL}/comparer-prix</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>`,
   `  <url><loc>${BASE_URL}</loc><lastmod>${latestDate}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>`,
   `  <url><loc>${BASE_URL}/coach-budget</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>`,
   ...CATEGORIES.map(

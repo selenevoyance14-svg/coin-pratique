@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { BadgeEuro, ShieldCheck } from "lucide-react";
 import BudgetCoach from "@/components/BudgetCoach";
 
@@ -35,6 +36,7 @@ export default function CoachBudgetPage() {
           <p className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-green-700"><ShieldCheck size={16} /> Les montants restent uniquement sur votre appareil.</p>
         </div>
         <BudgetCoach />
+        <p className="mt-6 text-center"><Link href="/comparer-prix" className="font-semibold text-blue-700 underline">Pour vos courses : comparer deux formats au kilo ou au litre</Link></p>
         <div className="mt-10 rounded-2xl border border-gray-100 bg-white p-6 text-sm leading-6 text-gray-600">
           <h2 className="text-lg font-bold text-gray-900">Comment utiliser ce diagnostic ?</h2>
           <p className="mt-2">Les résultats sont des estimations pédagogiques et ne remplacent pas un conseil financier personnalisé. Si votre budget est durablement négatif, un Point Conseil Budget peut vous accompagner gratuitement et confidentiellement.</p>

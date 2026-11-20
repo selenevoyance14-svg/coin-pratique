@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Mentions légales",
+  description: "Éditeur, hébergement et informations légales de Coin Pratique, site de guides gratuits sur les démarches et le budget.",
+  alternates: { canonical: "/mentions-legales" },
+};
+
 export default function MentionsLegales() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
